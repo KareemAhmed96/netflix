@@ -4,9 +4,11 @@ from .views import *
 
 urlpatterns = [
     path('episodes', EpisodeController.as_view()),
+    path('oneepisode', OneEpisode.as_view()),
     path("movie", MovieController.as_view()),
     path("tv_show", TvShowsController.as_view()),
     path('moreinfo', MoreInfo.as_view()),
+    path('suggestion', Suggestion.as_view()),
     path('season', SeasonController.as_view()),
     path("top_ten_movies/<str:country>", views.top_ten_movies, name="top_ten_movies"),
     path("top_ten_tv_show/<str:country>", views.top_ten_tv_show, name="top_ten_tv_show"),

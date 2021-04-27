@@ -1,5 +1,6 @@
 import json
 
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -9,6 +10,7 @@ from resources.serializers import MovieSerializer
 
 
 class MovieController(APIView, ):
+    permission_classes = [IsAuthenticated, ]
     def get(self, request, *args, **kwargs):
         try:
             movies = Movies.objects.all()
@@ -22,7 +24,7 @@ class MovieController(APIView, ):
             data = request.data
             moods = json.loads(data['moods'])
             genres = json.loads(data['genres'])
-            country = Country.objects.get(name=json.loads(request.data['country'])['name'])
+            country = Country.objects.get(name=request.data['country'])
             movie = Movies(name=data['name'], description=data['description'], year=data['year'], age=data['age'],
                            image=data['image'], trailer=data['trailer'], time=data['time'], url=data['url'], country=country)
             movie.clean()

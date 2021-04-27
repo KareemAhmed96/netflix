@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'history',
     'mylist',
     'accounts.apps.AccountsConfig',
+    'payment',
     'rest_framework',
     'rest_framework.authtoken',
     'django.contrib.admin',
@@ -61,9 +62,11 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
+
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ]
+
 }
 
 ROOT_URLCONF = 'netflix.urls'
@@ -137,8 +140,8 @@ MEDIA_URL = '/media/'
 CORS_ORIGIN_ALLOW_ALL = True
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'nfsysplus1234'
-EMAIL_HOST_USER = 'nfsysplus@gmail.com'
+EMAIL_HOST_PASSWORD = 'nfmailsystem123'
+EMAIL_HOST_USER = 'nfmailsystem@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -151,3 +154,6 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51IcdbUCqpNJDX1Dkg9VseKJsmn5BE1tOaJBb4gvVIglcGI22jNMcUbMXhwPhdZlPn912bAhtc6X3D7pq2WTMV55E00u5XPmDeo'
+STRIPE_SECRET_KEY = 'sk_test_51IcdbUCqpNJDX1DkcuiCRNAqy06qwAuazoo0VwzR2OE0TPJ0Tg2NOHWMyUxKgY5q6lc2OpHpxSYvjWS6wCeIUtEN00dJDuzq8O'
